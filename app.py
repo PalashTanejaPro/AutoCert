@@ -2,6 +2,8 @@ from PIL import Image
 from PIL import ImageFont
 from PIL import ImageDraw
 from flask import redirect,Flask, request
+import time
+
 
 img = Image.open("certitemplate.jpg")
 draw = ImageDraw.Draw(img)
@@ -23,6 +25,7 @@ def data():
 	draw.text( (1050,1830), School, (0,0,0), font=selectFont )
 	draw.text( (1050,2170), event, (0,0,0), font=selectFont )
 	img.save( 'static/certi.pdf', "PDF", resolution=100.0)
+	time.sleep(5)
 	return redirect('/static/certi.pdf') 
 #Name="Palash Taneja"
 #School = "DPS Rohini"
